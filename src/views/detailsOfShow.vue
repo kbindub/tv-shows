@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DetailsOfShow/>
+    <details-of-show></details-of-show>
   </div>
 </template>
 <script>

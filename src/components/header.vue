@@ -29,7 +29,7 @@ export default {
     data(){
         return{
             searchKey : '',
-            genre:''
+            genre:'Select Genres'
         }
     },
     computed:{
