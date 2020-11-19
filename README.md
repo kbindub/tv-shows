@@ -46,6 +46,25 @@ npm run test:e2e
 npm run test:unit
 ```
 
+### Project Guidelines ------------
+
+1) File Naming Convention, 
+   Method Naming Convention, 
+   Component Naming Convention,
+   variable, object declaration : camelCase
+   Example : tvShowsApi.js, getShowsList(), filterListComponent, listOfShows etc..
+
+2) Folder Naming Convention, Components directives in vue : kabab-case
+   Example : app-header, <app-header />
+
+3) Vuex Standards:
+   a. mutations: camelCaseSuffixSet
+      ex: setListOfShows
+   b. actions: camelCaseSuffixAction
+      ex: getListOfShowsAction
+   c. state: camelCase
+      ex: listOfShows  
+
 ### Project dependencies and devDependencies ------------
 1. axios:
    Promise based HTTP client for the browser.
