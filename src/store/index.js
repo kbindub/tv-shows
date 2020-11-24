@@ -10,13 +10,13 @@ export const state =  {
 }
 
 export const mutations = {
-  setListOfShows(state, value){
+  SET_LISTOFSHOWS(state, value){
     state.listOfShows = value;
   },
-  setShowsBasedOnSearch(state,value){
+  SET_SHOWSBASEDONSEARCH(state,value){
     state.showsBasedOnSearch = value;
   },
-  setShowDetails(state, value){
+  SET_SHOWDETAILS(state, value){
     state.showDetails = value;
   }
 }
@@ -25,7 +25,7 @@ export const actions = {
   getListOfShowsAction({ commit }){
     getListOfShows()
     .then( (result) => {
-      commit('setListOfShows', result.data);
+      commit('SET_LISTOFSHOWS', result.data);
     })
     .catch((error) => {
       alert("There is a problem in getting the TV Shows. "+ error);
@@ -35,7 +35,7 @@ export const actions = {
   getShowsBasedOnsearchAction({ commit }, searchKey){
     getShowsBasedOnsearch(searchKey)
     .then((result) => {
-      commit('setShowsBasedOnSearch', result.data);
+      commit('SET_SHOWSBASEDONSEARCH', result.data);
     })
     .catch((error) => {
       alert("There is a problem in getting the search data.  "+ error);
@@ -45,7 +45,7 @@ export const actions = {
   getShowDetailsBasedOnIdAction({ commit }, showId){
     getShowDetailsBasedOnId(showId)
     .then((result) => {
-      commit('setShowDetails', result.data);
+      commit('SET_SHOWDETAILS', result.data);
     })
     .catch((error) => {
       alert("There is a problem in getting the details." + error);

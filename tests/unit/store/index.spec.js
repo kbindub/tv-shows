@@ -11,18 +11,18 @@ jest.mock('../../../src/services/tvShowsApi.js')
 describe('In Store', () => {
 
     describe("Mutations Test", () => {
-        it('setListOfShows sets state.listOfShows to given value', () => {
-            mutations.setListOfShows(state, showsList);
+        it('SET_LISTOFSHOWS sets state.listOfShows to given value', () => {
+            mutations.SET_LISTOFSHOWS(state, showsList);
             expect(state.listOfShows).toBe(showsList);
         });
 
-        it('setShowsBasedOnSearch sets state.showsBasedOnSearch to given value', () => {
-            mutations.setShowsBasedOnSearch(state, showsList);
+        it('SET_SHOWSBASEDONSEARCH sets state.showsBasedOnSearch to given value', () => {
+            mutations.SET_SHOWSBASEDONSEARCH(state, showsList);
             expect(state.showsBasedOnSearch).toBe(showsList);
         });
 
-        it('setShowDetails sets state.showDetails to given value', () => {
-            mutations.setShowDetails(state, showDetails);
+        it('SET_SHOWDETAILS sets state.showDetails to given value', () => {
+            mutations.SET_SHOWDETAILS(state, showDetails);
             expect(state.showDetails).toBe(showDetails);
         });
     });
@@ -36,7 +36,7 @@ describe('In Store', () => {
             });
             actions.getListOfShowsAction(context);
             await flushPromises();
-            expect(context.commit).toHaveBeenCalledWith('setListOfShows',data.data);
+            expect(context.commit).toHaveBeenCalledWith('SET_LISTOFSHOWS',data.data);
         });
 
         it("get shows based on search action", async () => {
@@ -45,7 +45,7 @@ describe('In Store', () => {
             });
             actions.getShowsBasedOnsearchAction(context);
             await flushPromises();
-            expect(context.commit).toHaveBeenCalledWith('setShowsBasedOnSearch',data.data);
+            expect(context.commit).toHaveBeenCalledWith('SET_SHOWSBASEDONSEARCH',data.data);
         });
 
         it("get all shows list action", async () => {
@@ -54,34 +54,34 @@ describe('In Store', () => {
             });
             actions.getShowDetailsBasedOnIdAction(context);
             await flushPromises();
-            expect(context.commit).toHaveBeenCalledWith('setShowDetails',data.data);
+            expect(context.commit).toHaveBeenCalledWith('SET_SHOWDETAILS',data.data);
         });
     });
 
     describe("Getters Test", () => {
         it("getShowsList should return listOfShows value from state", () => {
-            mutations.setListOfShows(state, showsList);
+            mutations.SET_LISTOFSHOWS(state, showsList);
             expect(getters.getShowsList(state)).toBe(showsList);
         });
 
         it("getShowsBasedOnSearch should return showsBasedOnSearch value from state", () => {
-            mutations.setShowsBasedOnSearch(state, showsList);
+            mutations.SET_SHOWSBASEDONSEARCH(state, showsList);
             expect(getters.getShowsBasedOnSearch(state)).toBe(showsList);
         });
 
         it("getShowDetails should return showDetails value from state", () => {
-            mutations.setShowDetails(state, showDetails);
+            mutations.SET_SHOWDETAILS(state, showDetails);
             expect(getters.getShowDetails(state)).toBe(showDetails);
         });
 
         it("getListOfShowsBasedOnGenres should filter listOfShows based on genre", () => {
-            mutations.setListOfShows(state, showsList);
+            mutations.SET_LISTOFSHOWS(state, showsList);
             expect(JSON.stringify(getters.getListOfShowsBasedOnGenres(state) ("rating"))).toBe(JSON.stringify(showsList));
             expect(JSON.stringify(getters.getListOfShowsBasedOnGenres(state) ("Drama"))).toBe(JSON.stringify(filterdData));
         });
 
         it("getAllGenres should return all the unique genres from shows list", () => {
-            mutations.setListOfShows(state, showsList);
+            mutations.SET_LISTOFSHOWS(state, showsList);
             expect(JSON.stringify(getters.getAllGenres(state))).toBe(JSON.stringify(genresList));
         });
         

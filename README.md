@@ -58,8 +58,8 @@ npm run test:unit
    Example : app-header, <app-header />
 
 3) Vuex Standards:
-   a. mutations: camelCaseSuffixSet
-      ex: setListOfShows
+   a. mutations: ALL_CAPS
+      ex: SET_LISTOFSHOWS
    b. actions: camelCaseSuffixAction
       ex: getListOfShowsAction
    c. state: camelCase
