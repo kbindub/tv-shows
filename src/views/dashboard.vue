@@ -1,9 +1,10 @@
 <template>
   <div>
     <dashboard heading="Popular Shows" category="rating"></dashboard>
-    <dashboard heading="Comedy Shows" category="Comedy"></dashboard>
-    <dashboard heading="Drama Shows" category="Drama"></dashboard>
-    <dashboard heading="Action Shows" category="Action"></dashboard>
+    <div v-for="genre in getAllGenres" :key="genre">
+        <dashboard :heading="genre+' Shows'" :category=genre></dashboard>
+    </div>
+    
   </div>
 </template>
 
@@ -14,6 +15,11 @@ export default {
   name: 'Home',
   components: {
     Dashboard
+  },
+  computed:{
+    getAllGenres(){
+      return this.$store.getters.getAllGenres;
+    }
   }
 }
 </script>

@@ -1,11 +1,23 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Dashboard from '../../../src/views/dashboard.vue'
+import Vuex from 'vuex'
+
 describe('Inside Dashboard.vue View', () => {
     let dashboardWrapper;
     beforeEach(() => {
         const localVue = createLocalVue();
+        localVue.use(Vuex);
+        const mockStore = {
+            dispatch : jest.fn(),
+            getters : {
+                getAllGenres: () => { return [];}
+            }
+        }
         dashboardWrapper = shallowMount(Dashboard, {
-            localVue
+            localVue,
+            mocks : {
+                $store: mockStore
+            }
         });
     });
 

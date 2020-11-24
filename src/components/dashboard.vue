@@ -1,7 +1,7 @@
 <template>
    <div>
       <div class="container mt-2">
-        <div class="row">
+        <div>
                <h4 class="ml-3">{{heading}}</h4>
                <div>
                   <div class="container">
@@ -12,7 +12,7 @@
                               <slide v-for="show in getListOfShows.slice(0,20)" :key="show.id">
                                 <a :href="`#/details/${show.id}`">
                                  <div class="card border-light">
-                                   <img class="card-img-top" :src="show.image.medium" alt="Card image">
+                                    <img class="card-img-top" :src="show.image.medium" alt="Card image">
                                  </div>
                                  </a>
                               </slide>
@@ -48,7 +48,7 @@ export default {
   },
   data(){
     return{
-      responsive: [[320,2],[420,3],[750,5],[1000,7]]
+      responsive: [[320,2],[420,3],[750,5],[1000,7],[1200,9]]
     }
   },
   computed:{
