@@ -30,7 +30,7 @@ describe('Inside Dashboard.vue View', () => {
     });
 
     it('Should have a dashboard component', () => {
-        expect(dashboardWrapper.html()).toContain('<dashboard-stub heading="Popular Shows" category="rating"></dashboard-stub>');
+        expect(dashboardWrapper.html()).toContain('<dashboard-stub heading="Popular Shows" category="popular"></dashboard-stub>');
     });
 
 })

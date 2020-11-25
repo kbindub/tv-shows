@@ -6,7 +6,7 @@ import { BootstrapVue } from 'bootstrap-vue';
 
 describe('Inside Header Component', () => {
     let headerWrapper;
-    const $route = new VueRouter();
+    const route = new VueRouter();
     beforeEach(() => {
         const localVue = createLocalVue();
         localVue.use(Vuex);
@@ -20,11 +20,15 @@ describe('Inside Header Component', () => {
                 getShowsList: () => { return [];}
             }
         }
+        const mockRouter = {
+            push: jest.fn()
+        }
         headerWrapper = shallowMount(Header, {
             localVue,
-            $route,
+            route,
             mocks : {
-                $store: mockStore
+                $store: mockStore,
+                $router: mockRouter
             },
             data(){
                 return{
@@ -47,5 +51,8 @@ describe('Inside Header Component', () => {
         expect(headerWrapper.contains('b-dropdown-stub')).toBe(true);
     });
 
-    
+    it("Should dispatch an action", () => {
+        expect(headerWrapper.vm.$store.dispatch).toHaveBeenCalled();
+    });
+
 })

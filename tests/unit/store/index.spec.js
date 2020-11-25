@@ -79,13 +79,13 @@ describe('In Store', () => {
 
         it("getListOfShowsBasedOnGenres should filter listOfShows based on genre", () => {
             mutations.SET_LISTOFSHOWS(state, showsList);
-            expect(JSON.stringify(getters.getListOfShowsBasedOnGenres(state) ("rating"))).toBe(JSON.stringify(showsList));
-            expect(JSON.stringify(getters.getListOfShowsBasedOnGenres(state) ("Drama"))).toBe(JSON.stringify(filterdData));
+            expect(getters.getListOfShowsBasedOnGenres(state) ("popular")).toEqual(showsList);
+            expect(getters.getListOfShowsBasedOnGenres(state) ("Drama")).toEqual(filterdData);
         });
 
         it("getAllGenres should return all the unique genres from shows list", () => {
             mutations.SET_LISTOFSHOWS(state, showsList);
-            expect(JSON.stringify(getters.getAllGenres(state))).toBe(JSON.stringify(genresList));
+            expect(getters.getAllGenres(state)).toEqual(genresList);
         });
         
     });
