@@ -5,7 +5,6 @@ module.exports = {
     '**/*.{js,vue}',
     '!**/dist/**',
     '!**/*.config.js',
-    '!**/vendor/**',
     '!**/tests/e2e/**',
     '!**/main.js',
     '!**/coverage/**',
