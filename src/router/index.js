@@ -11,32 +11,27 @@ const routes = [
   {
     path: '/',
     name: 'Dashboard',
-    component: Dashboard,
-    meta: { hideNavigation: false }
+    component: Dashboard
   },
   {
     path: '/details/:showId',
     name: 'DetailsOfShow',
-    component: DetailsOfShow,
-    meta: { hideNavigation: false }
+    component: DetailsOfShow
   },
   {
     path: '/search/:searchkey',
     name: 'SearchShow',
-    component: SearchShow,
-    meta: { hideNavigation: false }
+    component: SearchShow
   },
   {
     path: '/genres/:filterkey',
     name: 'FilterList',
-    component: FilterList,
-    meta: { hideNavigation: false }
+    component: FilterList
   },
   {
     path: '*',
     name: 'PageNotFound',
-    component: PageNotFound,
-    meta: { hideNavigation: true }
+    component: PageNotFound
   }
 ]
 

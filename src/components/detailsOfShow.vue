@@ -1,7 +1,7 @@
 <template>
    <div class="bg-light">
       <div class="container">
-         <div class="row m-1">
+         <div class="row m-1 mt-3">
             <a href="#/">
             <button type="button" class="btn btn-outline-dark">Back</button>
             </a>
@@ -51,45 +51,44 @@
                </div>
             </div>
             <div class="card border-light mt-3">
-                <div class="card-body">
-                    <h4 class="card-title">Cast</h4>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" v-for="cast in getShowDetails._embedded.cast" :key="cast.id">                 
-                            <div class="card border-light">
-                                <div class="text-center">
-                                <template v-if="cast.person.image">
-                                <img  :src="cast.person.image.medium" alt="Card image">
-                                    <div class="text-center mt-1">
-                                        <p class="mb-0">{{cast.person.name}}</p>
-                                        <p >({{cast.character.name}})</p>
-                                    </div>
-                                </template>
-                                </div>
-                            </div>                  
+               <div class="card-body">
+                  <h4 class="card-title">Cast</h4>
+                  <div class="row">
+                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" v-for="cast in getShowDetails._embedded.cast" :key="cast.id">
+                        <div class="card border-light">
+                           <div class="text-center">
+                              <template v-if="cast.person.image">
+                                 <img  :src="cast.person.image.medium" alt="Card image">
+                                 <div class="text-center mt-1">
+                                    <p class="mb-0">{{cast.person.name}}</p>
+                                    <p >({{cast.character.name}})</p>
+                                 </div>
+                              </template>
+                           </div>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            
          </template>
       </div>
    </div>
 </template>
 <script>
 export default {
-    name:"detailsOfShow",
-    computed:{
-        getShowDetails(){
-            return this.$store.getters.getShowDetails;    
-        }
-    },
-    mounted(){
-        this.$store.dispatch("getShowDetailsBasedOnIdAction", this.$route.params.showId);
-    },
-    watch: {     
-        '$route.params.showId': function () {
-            this.$store.dispatch("getShowDetailsBasedOnIdAction", this.$route.params.showId);
-        }
-    }
+   name:"detailsOfShow",
+   computed:{
+      getShowDetails(){
+         return this.$store.getters.getShowDetails;    
+      }
+   },
+   mounted(){
+     this.$store.dispatch("getShowDetailsBasedOnIdAction", this.$route.params.showId);
+   },
+   watch: {     
+      '$route.params.showId': function () {
+         this.$store.dispatch("getShowDetailsBasedOnIdAction", this.$route.params.showId);
+      }
+   }
 }
 </script>

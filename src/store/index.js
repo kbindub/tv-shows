@@ -65,7 +65,7 @@ export const getters = {
   },
   getListOfShowsBasedOnGenres: (state) => (genre) =>{
     let showsList = state.listOfShows;
-    if(genre === 'rating'){
+    if(genre === 'popular'){
       showsList.sort( (show1, show2) => {
         return show2.rating.average-show1.rating.average;
       });
@@ -80,7 +80,7 @@ export const getters = {
   getAllGenres: (state) => {
     let showsList = state.listOfShows;
     let genresList =[];
-    showsList.map((show) => genresList = genresList.concat(show.genres));
+    showsList.map((show) => genresList = [...genresList, ...show.genres]);
     return new Set(genresList);
   }
 }

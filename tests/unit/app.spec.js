@@ -26,7 +26,11 @@ describe('Inside App.vue Component', () => {
         expect(appWrapper.attributes('id')).toBe('app');
     });
 
-    it('Should have a header component', () => {
+    it('Should have a router component', () => {
         expect(appWrapper.contains('router-view-stub')).toBe(true);
+    });
+
+    it('Should have a header component', () => {
+        expect(appWrapper.contains('app-header-stub')).toBe(true);
     });
 })

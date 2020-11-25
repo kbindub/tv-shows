@@ -29,8 +29,9 @@ describe('In Store', () => {
     
     describe("Actions Test", () => {
         const context = { commit : jest.fn()}
-        let data = {data:showsList};
+        
         it("get all shows list action", async () => {
+            let data = {data:showsList};
             getListOfShows.mockImplementationOnce(() => {
                 return Promise.resolve(data);
             });
@@ -40,6 +41,7 @@ describe('In Store', () => {
         });
 
         it("get shows based on search action", async () => {
+            let data = {data:showsList};
             getShowsBasedOnsearch.mockImplementationOnce(() => {
                 return Promise.resolve(data);
             });
@@ -48,7 +50,8 @@ describe('In Store', () => {
             expect(context.commit).toHaveBeenCalledWith('SET_SHOWSBASEDONSEARCH',data.data);
         });
 
-        it("get all shows list action", async () => {
+        it("get show details based on id action", async () => {
+            let data = {data:showDetails};
             getShowDetailsBasedOnId.mockImplementationOnce(() => {
                 return Promise.resolve(data);
             });

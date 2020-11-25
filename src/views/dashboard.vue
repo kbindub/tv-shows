@@ -1,10 +1,9 @@
 <template>
   <div>
-    <dashboard heading="Popular Shows" category="rating"></dashboard>
+    <dashboard heading="Popular Shows" category="popular"></dashboard>
     <div v-for="genre in getAllGenres" :key="genre">
-        <dashboard :heading="genre+' Shows'" :category=genre></dashboard>
-    </div>
-    
+        <dashboard :heading="`${genre} Shows`" :category=genre></dashboard>
+    </div>   
   </div>
 </template>
 

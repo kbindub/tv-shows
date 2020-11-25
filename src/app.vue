@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <template v-if="!$route.meta.hideNavigation">
-      <AppHeader/>
-    </template>    
+    <app-header/>
     <router-view/>
   </div>
 </template>
