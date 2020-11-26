@@ -16,7 +16,7 @@
                                   </div>
                                 </a>
                                 <div class="text-center mt-1">
-                                  <p class="mb-0 text-muted" v-if="show.rating">{{show.rating.average}}</p>
+                                  <p class="mb-0 text-muted" v-if="show.rating">Rating : {{show.rating.average}}</p>
                                 </div>
                             </slide>
                           </carousel>

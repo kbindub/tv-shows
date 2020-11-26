@@ -7,8 +7,8 @@
                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                   <li class="nav-item"> <a class="nav-link active" href="#/">Dashboard</a> </li>
                </ul>
-               <form  class="d-flex">
-                  <b-dropdown :text="genre" class=" m-2" variant="outline-light">
+               <form  class="d-md-flex align-items-center">
+                  <b-dropdown :text="genre" class="mt-2 mr-2 mb-2 w-100" variant="outline-light">
                      <b-dropdown-item v-for="genre in getAllGenres" :key="genre" @click="routeToFilterList(genre)">
                         {{genre}}
                      </b-dropdown-item>
